@@ -2,7 +2,7 @@ import os
 import torch
 
 class ModelSaver:
-    def __init__(self, id):
+    def __init__(self, id, save_dir=os.path.join('.', 'weights')):
 
         if id is None:
             self.no_log = True
@@ -10,7 +10,7 @@ class ModelSaver:
         else:
             self.no_log = False
 
-            self.save_path = os.path.join('.', 'weights', '%s' % id )
+            self.save_path = os.path.join(save_dir, '%s' % id )
 
     def save_model(self, model, step):
         if self.no_log:
